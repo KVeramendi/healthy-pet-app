@@ -7,8 +7,13 @@ environment:
   sdk: '>=3.0.5 <4.0.0'
 
 dependencies:
+  auto_size_text: ^3.0.0
+  connectivity_plus: ^5.0.1
+  dio: ^5.3.3
   flutter:
     sdk: flutter
+  intl: ^0.18.1
+  provider: ^6.0.5
 
 dev_dependencies:
   flutter_test:
@@ -17,3 +22,28 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+
+  # assets:
+  #   - assets/
+  #   - assets/icons/
+  #   - assets/icons/alerts/
+  #   - assets/icons/menu/
+  #   - assets/icons/scanner/
+  #   - assets/images/login/
+  #   - assets/images/
+
+  fonts:
+    - family: MavenPro
+      fonts:
+        - asset: fonts/MavenPro-Regular.ttf
+        - asset: fonts/MavenPro-Bold.ttf
+          weight: 700
+        - asset: fonts/MavenPro-Black.ttf
+          weight: 900
+    - family: Lemonada
+      fonts:
+        - asset: fonts/Lemonada-Regular.ttf
+        - asset: fonts/Lemonada-Light.ttf
+          weight: 300
+        - asset: fonts/Lemonada-Bold.ttf
+          weight: 700
