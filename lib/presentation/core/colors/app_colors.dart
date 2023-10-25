@@ -9,6 +9,7 @@ class AppColors {
   static const Color darkGray = Color(0xFFA9A9A9);
   static const Color darkOrange = Color(0xFFFF8C00);
   static const Color darkRed = Color(0xFF8B0000);
+  static const Color dimGray = Color(0xFF696969);
   static const Color dodgerBlue = Color(0xFF1E90FF);
   static const Color gold = Color(0xFFFFD700);
   static const Color gray = Color(0xFF808080);

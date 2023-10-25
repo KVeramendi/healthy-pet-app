@@ -4,7 +4,7 @@ import '../styles/app_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-class FormInputText extends StatefulWidget {
+class CustomTextFormField extends StatefulWidget {
   final bool isExpanded;
   final double? height;
   final String? label;
@@ -29,7 +29,7 @@ class FormInputText extends StatefulWidget {
   final void Function(String)? onFieldSubmitted;
   final String? Function(String)? validator;
   final List<TextInputFormatter>? inputFormatters;
-  const FormInputText({
+  const CustomTextFormField({
     Key? key,
     this.isExpanded = true,
     this.height,
@@ -58,10 +58,10 @@ class FormInputText extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  State<FormInputText> createState() => _FormInputTextState();
+  State<CustomTextFormField> createState() => _CustomTextFormFieldState();
 }
 
-class _FormInputTextState extends State<FormInputText> {
+class _CustomTextFormFieldState extends State<CustomTextFormField> {
   bool _obscureText = true;
 
   @override
@@ -77,7 +77,7 @@ class _FormInputTextState extends State<FormInputText> {
               style: widget.labelStyle,
               maxLines: 1,
             ),
-          if (widget.label != null) const SizedBox(height: 4.0),
+          if (widget.label != null) const SizedBox(height: 4),
           SizedBox(
             height: widget.height,
             child: TextFormField(
@@ -94,6 +94,7 @@ class _FormInputTextState extends State<FormInputText> {
                 ),
                 suffixIcon: widget.obscureText
                     ? IconButton(
+                        splashRadius: 24,
                         onPressed: () =>
                             setState(() => _obscureText = !_obscureText),
                         icon: _obscureText
@@ -103,29 +104,29 @@ class _FormInputTextState extends State<FormInputText> {
                 counterText: '',
                 errorBorder: OutlineInputBorder(
                   borderSide: const BorderSide(color: AppColors.red),
-                  borderRadius: BorderRadius.circular(4.0),
+                  borderRadius: BorderRadius.circular(16),
                 ),
                 focusedBorder: OutlineInputBorder(
                   borderSide: const BorderSide(color: AppColors.orange),
-                  borderRadius: BorderRadius.circular(4.0),
+                  borderRadius: BorderRadius.circular(16),
                 ),
                 focusedErrorBorder: OutlineInputBorder(
                   borderSide: const BorderSide(
                     color: AppColors.red,
-                    width: 2.0,
+                    width: 2,
                   ),
-                  borderRadius: BorderRadius.circular(4.0),
+                  borderRadius: BorderRadius.circular(16),
                   gapPadding: 16,
                 ),
                 enabledBorder: OutlineInputBorder(
                   borderSide: const BorderSide(color: AppColors.lightGray),
-                  borderRadius: BorderRadius.circular(4.0),
+                  borderRadius: BorderRadius.circular(16),
                 ),
               ),
               keyboardType:
                   widget.readOnly ? TextInputType.none : widget.keyboardType,
               textInputAction: widget.textInputAction,
-              style: AppStyles.mavenPro14DarkGray,
+              style: AppStyles.mavenPro14Black,
               textAlignVertical: widget.textAlignVertical,
               readOnly: widget.readOnly,
               showCursor: widget.readOnly ? false : widget.showCursor,

@@ -29,7 +29,7 @@ class BackButtonAppBar extends StatelessWidget implements PreferredSizeWidget {
               onPressed: onPressed ?? () => Navigator.maybePop(context),
               icon: Icon(
                 Icons.arrow_back_rounded,
-                color: blankColor ? AppColors.white : AppColors.darkGray,
+                color: blankColor ? AppColors.white : AppColors.dimGray,
               ),
             )
           : null,
@@ -38,7 +38,7 @@ class BackButtonAppBar extends StatelessWidget implements PreferredSizeWidget {
         title,
         style: blankColor
             ? AppStyles.mavenPro20BoldWhite
-            : AppStyles.mavenPro20BoldDarkGray,
+            : AppStyles.mavenPro20BoldDimGray,
       ),
       actions: actions,
       elevation: 0,

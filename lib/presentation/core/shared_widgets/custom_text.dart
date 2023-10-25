@@ -1,6 +1,7 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:healthy_pet_app/presentation/core/styles/app_styles.dart';
+
+import '../styles/app_styles.dart';
 
 class CustomText extends StatelessWidget {
   final String? text;

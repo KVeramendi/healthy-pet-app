@@ -16,7 +16,7 @@ class PrimaryButton extends StatelessWidget {
     Key? key,
     this.padding = 0,
     this.isExpanded = true,
-    this.height = 46.0,
+    this.height = 46,
     required this.onPressed,
     required this.text,
     this.outlineStyle = false,
@@ -38,7 +38,7 @@ class PrimaryButton extends StatelessWidget {
                   backgroundColor: AppColors.transparent,
                   side: const BorderSide(color: AppColors.orange),
                   shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(4.0)),
+                      borderRadius: BorderRadius.circular(16)),
                 ).copyWith(
                   overlayColor: rippleEffect
                       ? MaterialStateProperty.all(AppColors.lightGray)
@@ -48,7 +48,7 @@ class PrimaryButton extends StatelessWidget {
               : ElevatedButton.styleFrom(
                   backgroundColor: AppColors.orange,
                   shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(4.0)),
+                      borderRadius: BorderRadius.circular(16)),
                 ).copyWith(
                   overlayColor: rippleEffect
                       ? null

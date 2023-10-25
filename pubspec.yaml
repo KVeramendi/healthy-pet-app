@@ -23,14 +23,8 @@ dev_dependencies:
 flutter:
   uses-material-design: true
 
-  # assets:
-  #   - assets/
-  #   - assets/icons/
-  #   - assets/icons/alerts/
-  #   - assets/icons/menu/
-  #   - assets/icons/scanner/
-  #   - assets/images/login/
-  #   - assets/images/
+  assets:
+    - assets/login/
 
   fonts:
     - family: MavenPro

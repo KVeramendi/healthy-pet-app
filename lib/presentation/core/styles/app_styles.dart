@@ -2,13 +2,16 @@ import '../colors/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class AppStyles {
-  // Helvetica styles
+  // Maven Pro styles
   static const TextStyle mavenPro11Red = TextStyle(
     color: AppColors.red,
     fontSize: 11,
   );
   static const TextStyle mavenPro14Black = TextStyle(
     color: AppColors.black,
+  );
+  static const TextStyle mavenPro14DimGray = TextStyle(
+    color: AppColors.dimGray,
   );
   static const TextStyle mavenPro14Gray = TextStyle(
     color: AppColors.gray,
@@ -18,6 +21,9 @@ class AppStyles {
   );
   static const TextStyle mavenPro14LightGray = TextStyle(
     color: AppColors.lightGray,
+  );
+  static const TextStyle mavenPro14Orange = TextStyle(
+    color: AppColors.orange,
   );
   static const TextStyle mavenPro14Yellow = TextStyle(
     color: AppColors.yellow,
@@ -67,8 +73,18 @@ class AppStyles {
     fontSize: 16,
     fontWeight: FontWeight.bold,
   );
+  static const TextStyle mavenPro20BoldBlack = TextStyle(
+    color: AppColors.black,
+    fontSize: 20,
+    fontWeight: FontWeight.bold,
+  );
   static const TextStyle mavenPro20BoldDarkGray = TextStyle(
     color: AppColors.darkGray,
+    fontSize: 20,
+    fontWeight: FontWeight.bold,
+  );
+  static const TextStyle mavenPro20BoldDimGray = TextStyle(
+    color: AppColors.dimGray,
     fontSize: 20,
     fontWeight: FontWeight.bold,
   );
@@ -76,5 +92,22 @@ class AppStyles {
     color: AppColors.white,
     fontSize: 20,
     fontWeight: FontWeight.bold,
+  );
+
+  // Lemonada styles
+  static const TextStyle lemonada14Black = TextStyle(
+    color: AppColors.black,
+    fontFamily: 'Lemonada',
+  );
+  static const TextStyle lemonada14BoldBlack = TextStyle(
+    color: AppColors.black,
+    fontWeight: FontWeight.bold,
+    fontFamily: 'Lemonada',
+  );
+  static const TextStyle lemonada24BoldBlack = TextStyle(
+    color: AppColors.black,
+    fontSize: 24,
+    fontWeight: FontWeight.bold,
+    fontFamily: 'Lemonada',
   );
 }

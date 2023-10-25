@@ -1,23 +1,23 @@
 import 'package:flutter/material.dart';
-import 'package:healthy_pet_app/presentation/core/colors/app_colors.dart';
 
+import '../../core/colors/app_colors.dart';
 import '../../core/icons/app_icons.dart';
 import '../../core/shared_widgets/custom_text.dart';
 import '../../core/shared_widgets/custom_text_button.dart';
 import '../../core/shared_widgets/custom_text_form_field.dart';
 import '../../core/shared_widgets/primary_button.dart';
 import '../../core/styles/app_styles.dart';
-import 'login_controller.dart';
+import 'sign_up_controller.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
+class SignUpPage extends StatefulWidget {
+  const SignUpPage({super.key});
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<SignUpPage> createState() => _SignUpPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
-  final LoginController _controller = LoginController();
+class _SignUpPageState extends State<SignUpPage> {
+  final SignUpController _controller = SignUpController();
 
   @override
   void initState() {
@@ -40,16 +40,15 @@ class _LoginPageState extends State<LoginPage> {
             padding: const EdgeInsets.symmetric(horizontal: 16),
             child: Column(
               children: [
-                Image.asset(AppIcons.logo, width: 156),
-                const SizedBox(height: 4),
-                const CustomText('Healthy Pet',
+                const CustomText('Crear nueva cuenta',
                     style: AppStyles.lemonada24BoldBlack),
                 const SizedBox(height: 48),
-                const CustomText(
-                  '¡Bienvenido!',
-                  style: AppStyles.mavenPro20BoldBlack,
+                CustomTextFormField(
+                  controller: _controller.fullNameTextController,
+                  hintText: 'Nombre completo',
+                  keyboardType: TextInputType.name,
                 ),
-                const SizedBox(height: 36),
+                const SizedBox(height: 24),
                 CustomTextFormField(
                   controller: _controller.emailTextController,
                   hintText: 'Correo electrónico',
@@ -57,23 +56,24 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 const SizedBox(height: 24),
                 CustomTextFormField(
-                  controller: _controller.passwordTextController,
+                  controller: _controller.password1TextController,
                   hintText: 'Contraseña',
                   keyboardType: TextInputType.visiblePassword,
                   textInputAction: TextInputAction.done,
                   obscureText: true,
                 ),
-                const SizedBox(height: 4),
-                CustomTextButton(
-                  alignment: Alignment.centerRight,
-                  onPressed: () {},
-                  text: '¿Olvidaste la contraseña?',
-                  underline: false,
+                const SizedBox(height: 24),
+                CustomTextFormField(
+                  controller: _controller.password2TextController,
+                  hintText: 'Confirmar contraseña',
+                  keyboardType: TextInputType.visiblePassword,
+                  textInputAction: TextInputAction.done,
+                  obscureText: true,
                 ),
                 const SizedBox(height: 32),
                 PrimaryButton(
                   onPressed: () {},
-                  text: 'Iniciar sesión',
+                  text: 'Registrarse',
                 ),
                 const SizedBox(height: 16),
                 const Row(
@@ -85,7 +85,7 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                     ),
                     CustomText(
-                      '  Ó ingresa con  ',
+                      '  Ó registrate con  ',
                       style: AppStyles.mavenPro14Gray,
                     ),
                     Expanded(
@@ -115,11 +115,11 @@ class _LoginPageState extends State<LoginPage> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const CustomText('¿No tienes una cuenta?'),
+                    const CustomText('¿Ya tienes una cuenta?'),
                     const SizedBox(width: 8),
                     CustomTextButton(
-                      onPressed: () => _controller.toSignUpPage(context),
-                      text: 'Registrarse',
+                      onPressed: () => Navigator.pop(context),
+                      text: 'Ingresar',
                     ),
                   ],
                 ),
