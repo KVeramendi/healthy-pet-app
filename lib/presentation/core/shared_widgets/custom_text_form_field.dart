@@ -20,6 +20,7 @@ class CustomTextFormField extends StatefulWidget {
   final bool readOnly;
   final bool showCursor;
   final bool obscureText;
+  final Color borderColor;
   final int? maxLines;
   final bool expands;
   final int? maxLength;
@@ -34,7 +35,7 @@ class CustomTextFormField extends StatefulWidget {
     this.isExpanded = true,
     this.height,
     this.label,
-    this.labelStyle = AppStyles.mavenPro14BoldGray,
+    this.labelStyle = AppStyles.mavenPro14BoldDimGray,
     this.controller,
     this.initialValue,
     this.focusNode,
@@ -46,6 +47,7 @@ class CustomTextFormField extends StatefulWidget {
     this.readOnly = false,
     this.showCursor = true,
     this.obscureText = false,
+    this.borderColor = AppColors.orange,
     this.maxLines = 1,
     this.expands = false,
     this.maxLength,
@@ -77,7 +79,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
               style: widget.labelStyle,
               maxLines: 1,
             ),
-          if (widget.label != null) const SizedBox(height: 4),
+          if (widget.label != null) const SizedBox(height: 8),
           SizedBox(
             height: widget.height,
             child: TextFormField(
@@ -107,7 +109,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
                   borderRadius: BorderRadius.circular(16),
                 ),
                 focusedBorder: OutlineInputBorder(
-                  borderSide: const BorderSide(color: AppColors.orange),
+                  borderSide: BorderSide(color: widget.borderColor),
                   borderRadius: BorderRadius.circular(16),
                 ),
                 focusedErrorBorder: OutlineInputBorder(

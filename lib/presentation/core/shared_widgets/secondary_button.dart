@@ -3,11 +3,13 @@ import 'custom_text.dart';
 import '../styles/app_styles.dart';
 import 'package:flutter/material.dart';
 
-class SecondaryButton extends StatelessWidget {
+import 'loading_indicator.dart';
+
+class SecondaryButton extends StatefulWidget {
   final double padding;
   final bool isExpanded;
   final double height;
-  final VoidCallback onPressed;
+  final VoidCallback? onPressed;
   final String text;
   final bool outlineStyle;
   final bool rippleEffect;
@@ -23,40 +25,69 @@ class SecondaryButton extends StatelessWidget {
   }) : super(key: key);
 
   @override
+  State<SecondaryButton> createState() => _SecondaryButtonState();
+}
+
+class _SecondaryButtonState extends State<SecondaryButton> {
+  bool _isLoading = false;
+
+  void _onPressed() {
+    final onPressed = widget.onPressed;
+    if (onPressed == null) return;
+    if (onPressed is Future Function()) {
+      _handleAsyncPressed(onPressed);
+    } else {
+      _handleSyncPressed(onPressed);
+    }
+  }
+
+  Future<void> _handleAsyncPressed(Future<void> Function() onPressed) async {
+    setState(() => _isLoading = true);
+    await onPressed();
+    setState(() => _isLoading = false);
+  }
+
+  void _handleSyncPressed(VoidCallback onPressed) => onPressed();
+
+  @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: padding),
+      padding: EdgeInsets.symmetric(horizontal: widget.padding),
       child: SizedBox(
-        width: isExpanded ? double.infinity : null,
-        height: height,
+        width: widget.isExpanded ? double.infinity : null,
+        height: widget.height,
         child: ElevatedButton(
-          onPressed: onPressed,
-          style: outlineStyle
+          onPressed: widget.onPressed != null ? _onPressed : null,
+          style: widget.outlineStyle
               ? ElevatedButton.styleFrom(
                   backgroundColor: AppColors.transparent,
-                  side: const BorderSide(color: AppColors.lightOrange),
+                  side: const BorderSide(color: AppColors.green),
                   shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(4.0)),
+                      borderRadius: BorderRadius.circular(16)),
                 ).copyWith(
-                  overlayColor: rippleEffect
-                      ? MaterialStateProperty.all(AppColors.lightGray)
+                  overlayColor: widget.rippleEffect
+                      ? MaterialStateProperty.all(AppColors.lightGrayS)
                       : MaterialStateProperty.all(AppColors.transparent),
                   elevation: MaterialStateProperty.all(0),
                 )
               : ElevatedButton.styleFrom(
-                  backgroundColor: AppColors.lightOrange,
+                  backgroundColor: AppColors.limeGreen,
                   shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(4.0)),
+                      borderRadius: BorderRadius.circular(16)),
                 ).copyWith(
-                  overlayColor: rippleEffect
+                  overlayColor: widget.rippleEffect
                       ? null
                       : MaterialStateProperty.all(AppColors.transparent),
                   elevation: MaterialStateProperty.all(0),
                 ),
-          child: CustomText(
-            text,
-            style: AppStyles.mavenPro16BoldDarkOrange,
-          ),
+          child: _isLoading
+              ? const LoadingIndicator(dimension: 20, color: AppColors.green)
+              : CustomText(
+                  widget.text,
+                  style: widget.outlineStyle
+                      ? AppStyles.mavenPro16BoldGreen
+                      : AppStyles.mavenPro16BoldWhite,
+                ),
         ),
       ),
     );

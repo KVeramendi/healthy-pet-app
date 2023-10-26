@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:healthy_pet_app/presentation/core/colors/app_colors.dart';
 
+import '../../core/colors/app_colors.dart';
 import '../../core/icons/app_icons.dart';
 import '../../core/shared_widgets/custom_text.dart';
 import '../../core/shared_widgets/custom_text_button.dart';
 import '../../core/shared_widgets/custom_text_form_field.dart';
 import '../../core/shared_widgets/primary_button.dart';
 import '../../core/styles/app_styles.dart';
+import '../../core/utils/modals/modals.dart';
 import 'login_controller.dart';
+import 'widgets/forgot_password_widget.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -42,8 +44,10 @@ class _LoginPageState extends State<LoginPage> {
               children: [
                 Image.asset(AppIcons.logo, width: 156),
                 const SizedBox(height: 4),
-                const CustomText('Healthy Pet',
-                    style: AppStyles.lemonada24BoldBlack),
+                const CustomText(
+                  'Healthy Pet',
+                  style: AppStyles.lemonada24BoldBlack,
+                ),
                 const SizedBox(height: 48),
                 const CustomText(
                   '¡Bienvenido!',
@@ -66,13 +70,22 @@ class _LoginPageState extends State<LoginPage> {
                 const SizedBox(height: 4),
                 CustomTextButton(
                   alignment: Alignment.centerRight,
-                  onPressed: () {},
+                  onPressed: () {
+                    Modals.showModal(
+                      context,
+                      horizontal: 0,
+                      children: ForgotPasswordWidget(controller: _controller),
+                      isScrollControlled: true,
+                    );
+                  },
                   text: '¿Olvidaste la contraseña?',
                   underline: false,
                 ),
                 const SizedBox(height: 32),
                 PrimaryButton(
-                  onPressed: () {},
+                  onPressed: () async {
+                    await Future.delayed(const Duration(seconds: 1));
+                  },
                   text: 'Iniciar sesión',
                 ),
                 const SizedBox(height: 16),

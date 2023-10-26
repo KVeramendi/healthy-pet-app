@@ -32,6 +32,10 @@ class AppStyles {
     color: AppColors.black,
     fontWeight: FontWeight.bold,
   );
+  static const TextStyle mavenPro14BoldDimGray = TextStyle(
+    color: AppColors.dimGray,
+    fontWeight: FontWeight.bold,
+  );
   static const TextStyle mavenPro14BoldGray = TextStyle(
     color: AppColors.gray,
     fontWeight: FontWeight.bold,
@@ -48,6 +52,14 @@ class AppStyles {
     color: AppColors.blue,
     fontSize: 16,
   );
+  static const TextStyle mavenPro16DimGray = TextStyle(
+    color: AppColors.dimGray,
+    fontSize: 16,
+  );
+  static const TextStyle mavenPro16Green = TextStyle(
+    color: AppColors.green,
+    fontSize: 16,
+  );
   static const TextStyle mavenPro16BoldBlack = TextStyle(
     color: AppColors.black,
     fontSize: 16,
@@ -58,18 +70,28 @@ class AppStyles {
     fontSize: 16,
     fontWeight: FontWeight.bold,
   );
+  static const TextStyle mavenPro16BoldDarkGreen = TextStyle(
+    color: AppColors.darkGreen,
+    fontSize: 16,
+    fontWeight: FontWeight.bold,
+  );
+  static const TextStyle mavenPro16BoldGreen = TextStyle(
+    color: AppColors.green,
+    fontSize: 16,
+    fontWeight: FontWeight.bold,
+  );
   static const TextStyle mavenPro16BoldOrange = TextStyle(
     color: AppColors.orange,
     fontSize: 16,
     fontWeight: FontWeight.bold,
   );
-  static const TextStyle mavenPro16BoldWhite = TextStyle(
-    color: AppColors.white,
+  static const TextStyle mavenPro16BoldDarkOrange = TextStyle(
+    color: AppColors.darkOrange,
     fontSize: 16,
     fontWeight: FontWeight.bold,
   );
-  static const TextStyle mavenPro16BoldDarkOrange = TextStyle(
-    color: AppColors.darkOrange,
+  static const TextStyle mavenPro16BoldWhite = TextStyle(
+    color: AppColors.white,
     fontSize: 16,
     fontWeight: FontWeight.bold,
   );

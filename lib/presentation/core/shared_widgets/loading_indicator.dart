@@ -8,7 +8,7 @@ class LoadingIndicator extends StatelessWidget {
   const LoadingIndicator({
     Key? key,
     this.dimension = 48,
-    this.color = AppColors.orange,
+    this.color = AppColors.dimGray,
   }) : super(key: key);
 
   @override

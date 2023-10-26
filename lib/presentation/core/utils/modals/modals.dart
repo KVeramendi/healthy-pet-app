@@ -1,4 +1,6 @@
 // import 'package:flutter/cupertino.dart';
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 // import 'package:image_picker/image_picker.dart';
 
@@ -115,6 +117,45 @@ class Modals {
           ),
         );
       },
+    );
+  }
+
+  static Future<void> showModal(
+    BuildContext context, {
+    double horizontal = 16,
+    required Widget children,
+    bool isScrollControlled = false,
+  }) async {
+    return await showModalBottomSheet(
+      context: context,
+      builder: (_) {
+        return Padding(
+          padding: EdgeInsets.symmetric(vertical: 16, horizontal: horizontal),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Align(
+                alignment: Alignment.center,
+                child: Container(
+                  width: 110,
+                  height: 2,
+                  decoration: const ShapeDecoration(
+                    color: AppColors.lightGray,
+                    shape: StadiumBorder(),
+                  ),
+                ),
+              ),
+              const SizedBox(height: 24),
+              children,
+            ],
+          ),
+        );
+      },
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
+      ),
+      isScrollControlled: isScrollControlled,
+      useSafeArea: true,
     );
   }
 }
